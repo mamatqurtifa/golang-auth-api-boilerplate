@@ -9,12 +9,12 @@ import (
 
 type User struct {
 	ID                uint           `gorm:"primaryKey" json:"id"`
-	Email             string         `gorm:"uniqueIndex;not null" json:"email"`
-	Password          string         `gorm:"not null" json:"-"`
-	Name              string         `gorm:"not null" json:"name"`
+	Email             string         `gorm:"type:varchar(255);uniqueIndex;not null" json:"email"`
+	Password          string         `gorm:"type:varchar(255);not null" json:"-"`
+	Name              string         `gorm:"type:varchar(255);not null" json:"name"`
 	IsEmailVerified   bool           `gorm:"default:false" json:"is_email_verified"`
-	VerificationToken string         `json:"-"`
-	ResetToken        string         `json:"-"`
+	VerificationToken string         `gorm:"type:varchar(255)" json:"-"`
+	ResetToken        string         `gorm:"type:varchar(255)" json:"-"`
 	ResetTokenExpiry  *time.Time     `json:"-"`
 	CreatedAt         time.Time      `json:"created_at"`
 	UpdatedAt         time.Time      `json:"updated_at"`
