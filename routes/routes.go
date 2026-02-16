@@ -2,8 +2,8 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/yourusername/golang-auth-api-boilerplate/controllers"
-	"github.com/yourusername/golang-auth-api-boilerplate/middleware"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/controllers"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/middleware"
 )
 
 // SetupRoutes configures all application routes

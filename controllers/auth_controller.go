@@ -5,10 +5,10 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/yourusername/golang-auth-api-boilerplate/database"
-	"github.com/yourusername/golang-auth-api-boilerplate/models"
-	"github.com/yourusername/golang-auth-api-boilerplate/services"
-	"github.com/yourusername/golang-auth-api-boilerplate/utils"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/database"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/models"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/services"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/utils"
 )
 
 type AuthController struct {

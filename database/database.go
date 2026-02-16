@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/yourusername/golang-auth-api-boilerplate/config"
-	"github.com/yourusername/golang-auth-api-boilerplate/models"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/config"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

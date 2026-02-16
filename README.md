@@ -76,7 +76,7 @@ golang-auth-api-boilerplate/
 1. **Clone repository**
 
 ```bash
-git clone https://github.com/yourusername/golang-auth-api-boilerplate.git
+git clone https://github.com/mamatqurtifa/golang-auth-api-boilerplate.git
 cd golang-auth-api-boilerplate
 ```
 
@@ -636,7 +636,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Author
 
-Your Name - [@yourusername](https://github.com/yourusername)
+Your Name - [@mamatqurtifa](https://github.com/mamatqurtifa)
 
 ## Acknowledgments
 

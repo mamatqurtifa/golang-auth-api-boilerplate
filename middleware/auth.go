@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/yourusername/golang-auth-api-boilerplate/utils"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/utils"
 )
 
 // AuthMiddleware validates JWT token

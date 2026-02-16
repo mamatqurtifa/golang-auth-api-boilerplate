@@ -4,10 +4,10 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
-	"github.com/yourusername/golang-auth-api-boilerplate/config"
-	"github.com/yourusername/golang-auth-api-boilerplate/database"
-	"github.com/yourusername/golang-auth-api-boilerplate/middleware"
-	"github.com/yourusername/golang-auth-api-boilerplate/routes"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/config"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/database"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/middleware"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/routes"
 )
 
 func main() {

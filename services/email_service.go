@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/smtp"
 
-	"github.com/yourusername/golang-auth-api-boilerplate/config"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/config"
 )
 
 type EmailService struct{}

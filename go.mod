@@ -1,4 +1,4 @@
-module github.com/yourusername/golang-auth-api-boilerplate
+module github.com/mamatqurtifa/golang-auth-api-boilerplate
 
 go 1.26
 

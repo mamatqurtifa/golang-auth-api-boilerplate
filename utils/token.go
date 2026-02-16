@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/yourusername/golang-auth-api-boilerplate/config"
+	"github.com/mamatqurtifa/golang-auth-api-boilerplate/config"
 )
 
 type Claims struct {
