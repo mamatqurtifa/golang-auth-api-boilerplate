@@ -18,15 +18,16 @@ RESTful API authentication boilerplate yang dibangun dengan Go menggunakan frame
 - ✅ Request logging middleware
 - ✅ CORS enabled
 - ✅ Environment-based configuration
-- ✅ PostgreSQL database dengan GORM
+- ✅ MySQL/MariaDB database dengan GORM
+- ✅ Auto-create database (seperti Eloquent ORM)
 - ✅ Struktur project yang terorganisir
 
 ## 🛠 Tech Stack
 
-- **Language:** Go 1.21+
+- **Language:** Go 1.26
 - **Web Framework:** [Gin](https://github.com/gin-gonic/gin)
 - **ORM:** [GORM](https://gorm.io/)
-- **Database:** PostgreSQL
+- **Database:** MySQL/MariaDB
 - **Authentication:** JWT (JSON Web Tokens)
 - **Password Hashing:** bcrypt
 - **Email Service:** SMTP
@@ -66,8 +67,8 @@ golang-auth-api-boilerplate/
 
 ### Prerequisites
 
-- Go 1.21 atau lebih tinggi
-- PostgreSQL 12+
+- Go 1.26 atau lebih tinggi
+- MySQL 5.7+ atau MariaDB 10.3+
 - SMTP server (Gmail, SendGrid, dll) untuk email functionality
 
 ### Installation
@@ -87,10 +88,12 @@ go mod download
 
 3. **Setup database**
 
-Buat database PostgreSQL:
+**Database akan dibuat otomatis!** Anda hanya perlu memastikan MySQL/MariaDB server sudah berjalan.
+
+Jika ingin membuat manual:
 
 ```sql
-CREATE DATABASE auth_api_db;
+CREATE DATABASE auth_api_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
 4. **Configure environment variables**
@@ -108,13 +111,12 @@ Edit file `.env`:
 PORT=8080
 GIN_MODE=debug
 
-# Database Configuration
+# Database Configuration (MySQL/MariaDB)
 DB_HOST=localhost
-DB_PORT=5432
-DB_USER=postgres
+DB_PORT=3306
+DB_USER=root
 DB_PASSWORD=your_password
 DB_NAME=auth_api_db
-DB_SSLMODE=disable
 
 # JWT Configuration
 JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
@@ -547,32 +549,32 @@ Dan `docker-compose.yml`:
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:15-alpine
+  mysql:
+    image: mysql:8.0
     environment:
-      POSTGRES_DB: auth_api_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      MYSQL_DATABASE: auth_api_db
+      MYSQL_ROOT_PASSWORD: password
     ports:
-      - "5432:5432"
+      - "3306:3306"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - mysql_data:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
   api:
     build: .
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
+      - mysql
     environment:
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_USER: postgres
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
       DB_PASSWORD: password
       DB_NAME: auth_api_db
 
 volumes:
-  postgres_data:
+  mysql_data:
 ```
 
 ## 📝 Development Notes
@@ -636,5 +638,6 @@ Your Name - [@yourusername](https://github.com/yourusername)
 ---
 
 **Happy Coding! 🚀**
-#   g o l a n g - a u t h - a p i - b o i l e r p l a t e  
+#   g o l a n g - a u t h - a p i - b o i l e r p l a t e 
+ 
  
