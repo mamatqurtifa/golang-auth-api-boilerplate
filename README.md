@@ -1,28 +1,28 @@
-﻿# Golang Authentication API Boilerplate
+# Golang Authentication API Boilerplate
 
 RESTful API authentication boilerplate yang dibangun dengan Go menggunakan framework Gin, ORM GORM, dan JWT untuk autentikasi. API ini menyediakan fitur-fitur authentication lengkap termasuk register, login, reset password via email, dan manajemen profil user.
 
-## âœ¨ Fitur
+## Fitur
 
-- âœ… Registrasi user dengan email verification
-- âœ… Login dengan JWT token
-- âœ… Logout
-- âœ… Forgot password & Reset password via email
-- âœ… Change password untuk authenticated user
-- âœ… Get & Update user profile
-- âœ… Email verification
-- âœ… JWT-based authentication
-- âœ… Password hashing dengan bcrypt
-- âœ… SMTP email service
-- âœ… Middleware authentication
-- âœ… Request logging middleware
-- âœ… CORS enabled
-- âœ… Environment-based configuration
-- âœ… MySQL/MariaDB database dengan GORM
-- âœ… Auto-create database (seperti Eloquent ORM)
-- âœ… Struktur project yang terorganisir
+- Registrasi user dengan email verification
+- Login dengan JWT token
+- Logout
+- Forgot password & Reset password via email
+- Change password untuk authenticated user
+- Get & Update user profile
+- Email verification
+- JWT-based authentication
+- Password hashing dengan bcrypt
+- SMTP email service
+- Middleware authentication
+- Request logging middleware
+- CORS enabled
+- Environment-based configuration
+- MySQL/MariaDB database dengan GORM
+- Auto-create database (seperti Eloquent ORM)
+- Struktur project yang terorganisir
 
-## ðŸ›  Tech Stack
+## Tech Stack
 
 - **Language:** Go 1.26
 - **Web Framework:** [Gin](https://github.com/gin-gonic/gin)
@@ -33,37 +33,37 @@ RESTful API authentication boilerplate yang dibangun dengan Go menggunakan frame
 - **Email Service:** SMTP
 - **Environment Management:** godotenv
 
-## ðŸ“ Struktur Project
+## Struktur Project
 
 ```
 golang-auth-api-boilerplate/
-â”œâ”€â”€ config/              # Konfigurasi aplikasi
-â”‚   â””â”€â”€ config.go
-â”œâ”€â”€ controllers/         # HTTP handlers
-â”‚   â””â”€â”€ auth_controller.go
-â”œâ”€â”€ database/           # Database connection
-â”‚   â””â”€â”€ database.go
-â”œâ”€â”€ middleware/         # Middleware functions
-â”‚   â”œâ”€â”€ auth.go
-â”‚   â””â”€â”€ logger.go
-â”œâ”€â”€ models/             # Data models
-â”‚   â””â”€â”€ user.go
-â”œâ”€â”€ routes/             # Route definitions
-â”‚   â””â”€â”€ routes.go
-â”œâ”€â”€ services/           # Business logic
-â”‚   â””â”€â”€ email_service.go
-â”œâ”€â”€ utils/              # Utility functions
-â”‚   â”œâ”€â”€ helpers.go
-â”‚   â”œâ”€â”€ response.go
-â”‚   â””â”€â”€ token.go
-â”œâ”€â”€ .env.example        # Environment variables template
-â”œâ”€â”€ .gitignore
-â”œâ”€â”€ go.mod
-â”œâ”€â”€ main.go             # Application entry point
-â””â”€â”€ README.md
+├── config/              # Konfigurasi aplikasi
+│   └── config.go
+├── controllers/         # HTTP handlers
+│   └── auth_controller.go
+├── database/           # Database connection
+│   └── database.go
+├── middleware/         # Middleware functions
+│   ├── auth.go
+│   └── logger.go
+├── models/             # Data models
+│   └── user.go
+├── routes/             # Route definitions
+│   └── routes.go
+├── services/           # Business logic
+│   └── email_service.go
+├── utils/              # Utility functions
+│   ├── helpers.go
+│   ├── response.go
+│   └── token.go
+├── .env.example        # Environment variables template
+├── .gitignore
+├── go.mod
+├── main.go             # Application entry point
+└── README.md
 ```
 
-## ðŸš€ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -146,13 +146,13 @@ go run main.go
 
 Server akan berjalan di `http://localhost:8080`
 
-## ðŸ“š API Documentation
+## API Documentation
 
 Base URL: `http://localhost:8080/api/v1`
 
 ### Health Check
 
-#### GET /health
+#### GET /api/v1/health
 
 Cek status server.
 
@@ -164,13 +164,18 @@ Cek status server.
 }
 ```
 
+**Example:**
+```bash
+curl http://localhost:8080/api/v1/health
+```
+
 ---
 
 ### Authentication Endpoints
 
 #### 1. Register
 
-**POST** `/auth/register`
+**POST** `/api/v1/auth/register`
 
 Registrasi user baru.
 
@@ -215,7 +220,7 @@ Registrasi user baru.
 
 #### 2. Login
 
-**POST** `/auth/login`
+**POST** `/api/v1/auth/login`
 
 Login user.
 
@@ -259,7 +264,7 @@ Login user.
 
 #### 3. Forgot Password
 
-**POST** `/auth/forgot-password`
+**POST** `/api/v1/auth/forgot-password`
 
 Request password reset link via email.
 
@@ -282,7 +287,7 @@ Request password reset link via email.
 
 #### 4. Reset Password
 
-**POST** `/auth/reset-password`
+**POST** `/api/v1/auth/reset-password`
 
 Reset password dengan token yang dikirim via email.
 
@@ -315,7 +320,7 @@ Reset password dengan token yang dikirim via email.
 
 #### 5. Verify Email
 
-**GET** `/auth/verify-email?token=verification_token`
+**GET** `/api/v1/auth/verify-email?token=verification_token`
 
 Verifikasi email address.
 
@@ -342,7 +347,7 @@ Authorization: Bearer <jwt_token>
 
 #### 6. Get Profile
 
-**GET** `/user/profile`
+**GET** `/api/v1/user/profile`
 
 Ambil informasi profile user yang sedang login.
 
@@ -371,7 +376,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 #### 7. Update Profile
 
-**PUT** `/user/profile`
+**PUT** `/api/v1/user/profile`
 
 Update profile user.
 
@@ -407,7 +412,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 #### 8. Change Password
 
-**POST** `/user/change-password`
+**POST** `/api/v1/user/change-password`
 
 Ubah password untuk authenticated user.
 
@@ -445,7 +450,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 #### 9. Logout
 
-**POST** `/user/logout`
+**POST** `/api/v1/user/logout`
 
 Logout user (client-side token removal).
 
@@ -464,7 +469,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ---
 
-## ðŸ” Authentication
+## Authentication
 
 API ini menggunakan JWT (JSON Web Tokens) untuk authentication. Setelah login atau register, Anda akan menerima token yang harus disertakan di header setiap request ke protected endpoints.
 
@@ -475,13 +480,13 @@ Authorization: Bearer <your_jwt_token>
 
 Token akan expired sesuai dengan konfigurasi `JWT_EXPIRATION_HOURS` di file `.env` (default 24 jam).
 
-## ðŸ“§ Email Configuration
+## Email Configuration
 
 ### Gmail SMTP Setup
 
 1. Aktifkan 2-Factor Authentication di Google Account
 2. Generate App Password:
-   - Pergi ke Google Account â†’ Security â†’ App passwords
+   - Pergi ke Google Account → Security → App passwords
    - Pilih "Mail" dan device Anda
    - Copy password yang di-generate
 3. Gunakan App Password tersebut sebagai `SMTP_PASSWORD` di `.env`
@@ -493,7 +498,12 @@ Anda bisa menggunakan SMTP provider lain seperti:
 - **Mailgun**: smtp.mailgun.org:587
 - **Amazon SES**: email-smtp.region.amazonaws.com:587
 
-## ðŸ§ª Testing dengan cURL
+## Testing dengan cURL
+
+### Health Check
+```bash
+curl http://localhost:8080/api/v1/health
+```
 
 ### Register
 ```bash
@@ -522,12 +532,12 @@ curl -X GET http://localhost:8080/api/v1/user/profile \
   -H "Authorization: Bearer YOUR_JWT_TOKEN"
 ```
 
-## ðŸ³ Docker Support (Optional)
+## Docker Support (Optional)
 
 Anda bisa menambahkan Docker support dengan membuat `Dockerfile`:
 
 ```dockerfile
-FROM golang:1.21-alpine
+FROM golang:1.26-alpine
 
 WORKDIR /app
 
@@ -577,7 +587,7 @@ volumes:
   mysql_data:
 ```
 
-## ðŸ“ Development Notes
+## Development Notes
 
 ### Database Migrations
 
@@ -610,7 +620,7 @@ Struktur project ini mudah untuk di-extend. Beberapa fitur yang bisa ditambahkan
 - Metrics dan monitoring
 - Unit tests & integration tests
 
-## ðŸ¤ Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -620,15 +630,15 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## ðŸ“„ License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## ðŸ‘¤ Author
+## Author
 
 Your Name - [@yourusername](https://github.com/yourusername)
 
-## ðŸ™ Acknowledgments
+## Acknowledgments
 
 - [Gin Web Framework](https://github.com/gin-gonic/gin)
 - [GORM](https://gorm.io/)
@@ -637,4 +647,4 @@ Your Name - [@yourusername](https://github.com/yourusername)
 
 ---
 
-**Happy Coding! ðŸš€**
+**Happy Coding!**
